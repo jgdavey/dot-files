@@ -16,7 +16,6 @@ class ProjectCompletion
   end
 
   def projects
-    (`ls ~/iPhone/`.split) +
     (`ls ~/Sites/`.split )
   end
 end
