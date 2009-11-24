@@ -2,7 +2,7 @@
 
 Many of these were borrowed from Bodaniel Jeanes
 
-<strong>Use at your own risk</strong>
+Use at your own risk
 
 == License
 
