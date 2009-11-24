@@ -25,21 +25,19 @@ export PS1="\n${BOLDBLUE}\u ${CYAN}\w ${GREEN}\$(__git_ps1 '(%s) ')${YELLOW}$ ${
 }
 prompt
 
-function __pair_status {
-  hitchstatus " %s";
-}
-
 # readline settings
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous On" # this allows you to automatically show completion without double tab-ing
 
-shopt -s checkwinsize
-shopt -s histappend
-shopt -s globstar
+# shopt -s checkwinsize
+# shopt -s histappend
+# shopt -s globstar
+
 
 complete -C ~/.rake-completion.rb -o default rake}
 if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
+# Automatically add SSH identity for forwarding
 ssh-add &> /dev/null
