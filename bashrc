@@ -33,8 +33,13 @@ shopt -s histappend
 # shopt -s checkwinsize
 # shopt -s globstar
 
-
+# Auto-completions
 complete -C ~/.rake-completion.rb -o default rake
+
+
+# changing directory to code project
+function s { cd ~/Sites/$1; }
+complete -C ~/.project_completion.rb -o default s
 
 if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
 
