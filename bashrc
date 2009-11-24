@@ -3,6 +3,7 @@ system_name=`uname -s` # Sets 'Darwin' or 'Linux' etc
 source ~/.exports
 source ~/.gitrc
 source ~/.aliases
+source ~/.save-directory
 
 if [ $system_name == 'Darwin' ]; then
   source ~/.gemdoc
