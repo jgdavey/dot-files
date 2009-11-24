@@ -29,12 +29,13 @@ prompt
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous On" # this allows you to automatically show completion without double tab-ing
 
+shopt -s histappend
 # shopt -s checkwinsize
-# shopt -s histappend
 # shopt -s globstar
 
 
-complete -C ~/.rake-completion.rb -o default rake}
+complete -C ~/.rake-completion.rb -o default rake
+
 if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
