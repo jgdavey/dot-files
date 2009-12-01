@@ -1,11 +1,11 @@
 ---
-:benchmark: false
+:backtrace: false
 :verbose: true
 :update_sources: true
 :sources:
 - http://gemcutter.org
 - http://gems.rubyforge.org/
 - http://gems.github.com/
-:backtrace: false
 :bulk_threshold: 1000
+gemcutter_key: ede6d3352ec76138d74644aaa6369884
 rdoc: --inline-source --line-numbers
