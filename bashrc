@@ -3,7 +3,7 @@ system_name=`uname -s` # Sets 'Darwin' or 'Linux' etc
 source ~/.exports
 source ~/.gitrc
 source ~/.aliases
-source ~/.save-directory
+#source ~/.save-directory
 
 if [ $system_name == 'Darwin' ]; then
   source ~/.gemdoc
@@ -43,7 +43,6 @@ complete -C ~/.project_completion.rb -o default s
 
 if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
 
-test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
 # Automatically add SSH identity for forwarding
 ssh-add &> /dev/null
