@@ -10,20 +10,7 @@ if [ $system_name == 'Darwin' ]; then
   source ~/.terminal
 fi
 
-function prompt
-{
-local GREEN="\[\033[1;32m\]"
-local RED="\[\033[0;31m\]"
-local YELLOW="\[\033[1;33m\]"
-local BOLDBLUE="\[\033[1;34m\]"
-local CYAN="\[\033[0;36m\]"
-local MAGENTA="\[\033[1;35m\]"
-local GRAY="\[\033[0;37m\]"
-local BLUE="\[\033[0;34m\]"
-local DEFAULT="\[\033[0;38m\]"
-export PS1="\n${BOLDBLUE}\u ${CYAN}\w ${GREEN}\$(__git_ps1 '(%s) ')${YELLOW}$ ${DEFAULT}"
-}
-prompt
+export PS1="\n$COLOR_LIGHT_BLUE\u $COLOR_CYAN\w $COLOR_LIGHT_GREEN\$(__git_ps1 '(%s) ')${COLOR_YELLOW}$ $COLOR_NC"
 
 # readline settings
 bind "set completion-ignore-case on"
@@ -36,6 +23,10 @@ shopt -s histappend
 # Auto-completions
 complete -C ~/.rake-completion.rb -o default rake
 
+# Work computer overrides
+if [[ $HOME == "/Users/josh" ]]; then
+	export GEMDIR="$HOME/.gem/ruby/1.8"
+fi
 
 # changing directory to code project
 function s { cd ~/Sites/$1; }
