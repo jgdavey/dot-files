@@ -10,7 +10,7 @@ if [ $system_name == 'Darwin' ]; then
   source ~/.terminal
 fi
 
-export PS1="\n$COLOR_LIGHT_BLUE\u $COLOR_CYAN\w $COLOR_LIGHT_GREEN\$(__git_ps1 '(%s) ')${COLOR_YELLOW}$ $COLOR_NC"
+export PS1="\n${COLOR_LIGHT_BLUE}\u ${COLOR_CYAN}\w ${COLOR_LIGHT_GREEN}\$(__git_ps1 '(%s) ')${COLOR_YELLOW}$ ${COLOR_NC}"
 
 # readline settings
 bind "set completion-ignore-case on"
