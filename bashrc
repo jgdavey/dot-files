@@ -33,7 +33,7 @@ function s { cd ~/Sites/$1; }
 complete -C ~/.project_completion.rb -o default s
 
 # rvm scripts: for managing multiple Ruby versions
-if [[ -s /Users/josh/.rvm/scripts/rvm ]] ; then source /Users/josh/.rvm/scripts/rvm ; fi
+if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 
 # Automatically add SSH identity for forwarding
