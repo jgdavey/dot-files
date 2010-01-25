@@ -4,8 +4,7 @@ export PATH="$MAGICK_HOME/bin:$PATH"
 export MANPATH="$MAGICK_HOME/share/man:$MANPATH"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
 
-# opt folder
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
 # mysql
 export PATH="/usr/local/mysql/bin/:$PATH"
 # local gems
