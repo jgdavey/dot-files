@@ -26,4 +26,5 @@ setopt prompt_subst
 
 # Apply theming defaults
 PS1="%n %~ %# "
-PROMPT="%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info) %{$fg[yellow]%}%# %{$reset_color%}"
+PROMPT="
+%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info) %{$fg[yellow]%}%# %{$reset_color%}"
