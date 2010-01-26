@@ -55,11 +55,3 @@ function extract() {
         echo "'$1' is not a valid file"
     fi
 }
-
-if [ $system_name == 'Darwin' ]; then
-  function manpdf() { man -t $@ | open -f -a Preview; }
-  alias pubkey='cat ~/.ssh/*.pub | pbcopy && echo "Keys copied to clipboard"'
-  alias hidefile='/usr/bin/SetFile -a "V"'
-  alias showfile='/usr/bin/SetFile -a "v"'
-  alias readrails="mate `ruby -rubygems -e "puts( ['rails', 'activerecord', 'activeresource', 'actionpack', 'activesupport'].collect { |gem| gems = Gem.source_index.find_name(gem); gems.last.full_gem_path; }.join(' '))"`"
-fi
