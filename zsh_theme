@@ -27,8 +27,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="" # Text to display if the branch is clean
 # Setup the prompt with pretty colors
 setopt prompt_subst
 
-PROMPT="
-%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info) %{$fg[yellow]%}%# %{$reset_color%}"
+PROMPT='
+%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info) %{$fg[yellow]%}%# %{$reset_color%}'
 
 
 
