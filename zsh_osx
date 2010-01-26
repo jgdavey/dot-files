@@ -2,6 +2,7 @@
 function s { cd ~/Sites/$1; }
 
 export EDITOR='mate -w'
+export VISUAL=$EDITOR
 export GEM_OPEN_EDITOR='mate'
 
 function manpdf() { man -t $@ | open -f -a Preview; }
