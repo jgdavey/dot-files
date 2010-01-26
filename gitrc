@@ -1,6 +1,6 @@
 source ~/.git-completion
 
-
+alias git='hub'
 alias gs='git status'
 alias gl='git log -p'
 alias ga='git add .'
