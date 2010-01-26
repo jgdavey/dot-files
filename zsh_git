@@ -19,19 +19,72 @@ alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) 
 export PATH=/usr/local/git/bin:$PATH
 export MANPATH=/usr/local/git/man:$MANPATH
 
-# get the name of the branch we are on
-function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
+# __git_ps1 accepts 0 or 1 arguments (i.e., format string)
+# returns text to add to bash PS1 prompt (includes branch name)
+__git_ps1 ()
+{
+  local g="$(git rev-parse --git-dir 2>/dev/null)"
+  if [ -n "$g" ]; then
+    local r
+    local b
+    if [ -d "$g/rebase-apply" ]
+    then
+      if test -f "$g/rebase-apply/rebasing"
+      then
+        r="|REBASE"
+      elif test -f "$g/rebase-apply/applying"
+      then
+        r="|AM"
+      else
+        r="|AM/REBASE"
+      fi
+      b="$(git symbolic-ref HEAD 2>/dev/null)"
+    elif [ -f "$g/rebase-merge/interactive" ]
+    then
+      r="|REBASE-i"
+      b="$(cat "$g/rebase-merge/head-name")"
+    elif [ -d "$g/rebase-merge" ]
+    then
+      r="|REBASE-m"
+      b="$(cat "$g/rebase-merge/head-name")"
+    elif [ -f "$g/MERGE_HEAD" ]
+    then
+      r="|MERGING"
+      b="$(git symbolic-ref HEAD 2>/dev/null)"
+    else
+      if [ -f "$g/BISECT_LOG" ]
+      then
+        r="|BISECTING"
+      fi
+      if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
+      then
+        if ! b="$(git describe --exact-match HEAD 2>/dev/null)"
+        then
+          b="$(cut -c1-7 "$g/HEAD")..."
+        fi
+      fi
+    fi
 
-parse_git_dirty () {
-  if [[ $((git status 2> /dev/null) | tail -n1) != "nothing to commit (working directory clean)" ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+    if [ -n "${1-}" ]; then
+      printf "$1" "${b##refs/heads/}$r"
+    else
+      printf "(%s) " "${b##refs/heads/}$r"
+    fi
   fi
 }
+
+# get the name of the branch we are on
+function git_prompt_info() {
+  __git_ps1
+}
+
+# parse_git_dirty () {
+#   if [[ $((git status 2> /dev/null) | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+#     echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+#   else
+#     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+#   fi
+# }
 
 #
 # Will return the current branch name
@@ -41,3 +94,4 @@ function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
+
