@@ -1,13 +1,6 @@
 # ls colors
 autoload colors; colors;
 
-# Enable ls colors
-if [ "$DISABLE_LS_COLORS" != "true" ]
-then
-  # Find the option for using colors in ls, depending on the version: Linux or BSD
-  ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
-fi
-
 if [[ x$WINDOW != x ]]
 then
     SCREEN_NO="%B$WINDOW%b "
@@ -17,10 +10,11 @@ fi
 
 # Apply theming defaults
 PS1="%n %~ %# "
+PROMPT="%n %~ %# "
 
 # git theming default: Variables for theming the git info prompt
 ZSH_THEME_GIT_PROMPT_PREFIX="(" # Prefix at the very beginning of the prompt, before the branch name
-ZSH_THEME_GIT_PROMPT_SUFFIX=")" # At the very end of the prompt
+ZSH_THEME_GIT_PROMPT_SUFFIX=") " # At the very end of the prompt
 ZSH_THEME_GIT_PROMPT_DIRTY="*" # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN="" # Text to display if the branch is clean
 
@@ -28,7 +22,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="" # Text to display if the branch is clean
 setopt prompt_subst
 
 PROMPT='
-%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info) %{$fg[yellow]%}%# %{$reset_color%}'
+%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info)%{$fg[yellow]%}%# %{$reset_color%}'
 
 
 
@@ -56,15 +50,15 @@ function title {
   fi
 }
 
-function precmd {
-  title zsh "$PWD"
-}
-
-function preexec {
-  emulate -L zsh
-  local -a cmd; cmd=(${(z)1})
-  title $cmd[1]:t "$cmd[2,-1]"
-}
+# function precmd {
+#   title zsh "$PWD"
+# }
+#
+# function preexec {
+#   emulate -L zsh
+#   local -a cmd; cmd=(${(z)1})
+#   title $cmd[1]:t "$cmd[2,-1]"
+# }
 
 function remote_console() {
   /usr/bin/env ssh $1 "( cd $2 && ruby script/console production )"
