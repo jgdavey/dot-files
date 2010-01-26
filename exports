@@ -15,14 +15,7 @@ export PATH="$HOME/usr/local/bin:$HOME/bin:$HOME/bin/gitwtf/bin:$PATH"
 # homebrew manual entries
 export MANPATH="$HOME/share/man:$MANPATH"
 
-
-if [ $system_name == 'Darwin' ]; then
-  export EDITOR='mate -w'
-  # export CDPATH='.:~:~/Projecs:~/Sites'
-  export GEM_OPEN_EDITOR='mate'
-else
-  export EDITOR='nano -w'
-fi
+export EDITOR='nano -w'
 
 export IRBRC="$HOME/.irbrc"
 
