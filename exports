@@ -15,11 +15,10 @@ export PATH="$HOME/usr/local/bin:$HOME/bin:$HOME/bin/gitwtf/bin:$PATH"
 # homebrew manual entries
 export MANPATH="$HOME/share/man:$MANPATH"
 
+# Linux default: will be overridden later
 export EDITOR='nano -w'
 
 export IRBRC="$HOME/.irbrc"
-
-export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 export COLOR_NC="\[\033[0;38m\]" # No Color
