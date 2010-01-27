@@ -1,3 +1,4 @@
+#! /bin/zsh
 # ls colors
 autoload colors; colors;
 

@@ -1,23 +1,3 @@
-alias git='hub'
-alias gs='git status'
-alias gl='git log -p'
-alias ga='git add .'
-alias gpull='git pull --rebase'
-alias gd='git diff | mate'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gb='git branch'
-alias gco='git checkout'
-alias gdc='git-svn dcommit'
-alias gk='gitk --all &'
-
-alias gpatch='git diff master -p'
-alias gitrm="git stat | grep deleted | awk '{print \$3}' | xargs git rm"
-
-alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
-
-export PATH=/usr/local/git/bin:$PATH
-export MANPATH=/usr/local/git/man:$MANPATH
 
 # __git_ps1 accepts 0 or 1 arguments (i.e., format string)
 # returns text to add to bash PS1 prompt (includes branch name)
@@ -72,26 +52,3 @@ __git_ps1 ()
     fi
   fi
 }
-
-# get the name of the branch we are on
-function git_prompt_info() {
-  __git_ps1
-}
-
-# parse_git_dirty () {
-#   if [[ $((git status 2> /dev/null) | tail -n1) != "nothing to commit (working directory clean)" ]]; then
-#     echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-#   else
-#     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-#   fi
-# }
-
-#
-# Will return the current branch name
-# Usage example: git pull origin $(current_branch)
-#
-function current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
-
