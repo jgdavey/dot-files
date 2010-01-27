@@ -1,12 +1,17 @@
-source "$HOME/.aliases"
-source "$HOME/.exports"
-source "$HOME/.zsh_git"
-source "$HOME/.zsh_completion"
-source "$HOME/.zsh_theme"
+#! /bin/zsh
 
-if [[ `uname -s` == 'Darwin' ]]; then
-  source "$HOME/.zsh_osx"
-fi
+export ZSH="$HOME/.zsh.d"
+
+# Add function path
+fpath=($ZSH/func $fpath)
+
+
+## Load some aliases, exports from BASH
+source "$HOME/.exports"
+source "$HOME/.aliases"
+
+# Load all .zsh files under ~/.zsh.d/
+for config_file ($ZSH/*.zsh) source $config_file
 
 # rvm-install added line:
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
