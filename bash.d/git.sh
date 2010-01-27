@@ -1,4 +1,4 @@
-source ~/.git-completion
+source ~/.bash.d/_git-completion
 
 alias git='hub'
 alias gs='git status'
