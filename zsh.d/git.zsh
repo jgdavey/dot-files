@@ -14,6 +14,7 @@ alias gk='gitk --all &'
 
 alias gpatch='git diff master -p'
 alias gitrm="git stat | grep deleted | awk '{print \$3}' | xargs git rm"
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
 
@@ -24,5 +25,3 @@ export MANPATH=/usr/local/git/man:$MANPATH
 function git_prompt_info() {
   __git_ps1
 }
-
-#compctl -K _git hub
