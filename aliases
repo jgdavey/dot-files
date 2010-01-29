@@ -12,8 +12,6 @@ alias systail='tail -f -n0 /var/log/system.log'
 alias aptail='tail -f -n0 /var/log/apache*/*log'
 alias b='cd -'
 
-alias c='clear' # shortcut to clear your terminal
-
 alias sprof='source ~/.bash_profile'
 
 # useful command to find what you should be aliasing:

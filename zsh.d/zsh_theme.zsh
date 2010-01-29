@@ -11,7 +11,7 @@ fi
 
 # Apply theming defaults
 PS1="%n %~ %# "
-PROMPT="%n %~ %# "
+PROMPT=$PS1
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
@@ -19,19 +19,6 @@ setopt prompt_subst
 PROMPT='
 %{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(__git_ps1)%{$fg[yellow]%}%# %{$reset_color%}'
 
-
-
-function tab() {
-  osascript 2>/dev/null <<EOF
-    tell application "System Events"
-      tell process "Terminal" to keystroke "t" using command down
-    end
-    tell application "Terminal"
-      activate
-      do script with command "cd \"$PWD\"; $*" in window 1
-    end tell
-EOF
-}
 
 function title {
   if [[ $TERM == "screen" ]]; then
@@ -55,13 +42,6 @@ function title {
 #   title $cmd[1]:t "$cmd[2,-1]"
 # }
 
-function remote_console() {
-  /usr/bin/env ssh $1 "( cd $2 && ruby script/console production )"
-}
-
-function zsh_stats() {
-  history | awk '{print $2}' | sort | uniq -c | sort -rn | head
-}
 
 case "$TERM" in
   xterm*|rxvt*)
