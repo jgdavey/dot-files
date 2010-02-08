@@ -1,8 +1,10 @@
-# Image Magick
-export MAGICK_HOME="$HOME/bin/ImageMagick-6.5.3"
-export PATH="$MAGICK_HOME/bin:$PATH"
-export MANPATH="$MAGICK_HOME/share/man:$MANPATH"
-export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
+if [[ -s ~/bin/ImageMagick-6.5.3 ]] ; then
+	# Image Magick
+	export MAGICK_HOME="$HOME/bin/ImageMagick-6.5.3"
+	export PATH="$MAGICK_HOME/bin:$PATH"
+	export MANPATH="$MAGICK_HOME/share/man:$MANPATH"
+	export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
+fi
 
 
 # mysql
