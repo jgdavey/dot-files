@@ -1,0 +1,5 @@
+--type-add=rake=.rake
+--type-add=ruby=.haml,.rake,.rsel
+--type-set=rdoc=.rdoc,.yardoc
+--ignore-dir='migrate'
+--ignore-dir='vendor'
