@@ -1,7 +1,12 @@
 #! /bin/zsh
 
 ## Key Bindings
-bindkey -e
+bindkey -e # Use emacs keybindings
+
+# Make delete work in Terminal
+stty erase ^H
+bindkey "^[[3~" delete-char
+
 bindkey '\ew' kill-region
 bindkey -s '\el' "ls\n"
 bindkey -s '\e.' "..\n"
@@ -17,4 +22,4 @@ bindkey "^[[H" beginning-of-line
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[4~" end-of-line
-bindkey ' ' magic-space # also do history expansion on space
+# bindkey ' ' magic-space # also do history expansion on space
