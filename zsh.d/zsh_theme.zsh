@@ -32,35 +32,33 @@ function title {
   fi
 }
 
-# function precmd {
-#   title zsh "$PWD"
-# }
-#
-# function preexec {
-#   emulate -L zsh
-#   local -a cmd; cmd=(${(z)1})
-#   title $cmd[1]:t "$cmd[2,-1]"
-# }
+function pwd_title {
+  print -Pn "\e]0;%n %~\a"
+}
+
+function cmd_title {
+  print -Pn "\e]0;$1\a"
+}
 
 
 case "$TERM" in
   xterm*|rxvt*)
     preexec () {
-      print -Pn "\e]0;%n@%m: $1\a" # xterm
+      cmd_title # xterm
     }
     precmd () {
-      print -Pn "\e]0;%n@%m: %~\a" # xterm
+      pwd_title # xterm
     }
     ;;
   screen*)
     preexec () {
       local CMD=${1[(wr)^(*=*|sudo|ssh|-*)]}
       echo -ne "\ek$CMD\e\\"
-      print -Pn "\e]0;%n@%m: $1\a" # xterm
+      cmd_title
     }
     precmd () {
       echo -ne "\ekzsh\e\\"
-      print -Pn "\e]0;%n@%m: %~\a" # xterm
+      pwd_title
     }
     ;;
 esac
