@@ -4,6 +4,7 @@ set suspend
 # Use this tab size instead of the default; it must be greater than 0
 set tabsize 4
 
+set const
 
 #####################################################################
 # Ruby syntax highlighting for Nano.
