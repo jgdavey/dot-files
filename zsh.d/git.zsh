@@ -1,5 +1,5 @@
 #! /bin/zsh
-# alias git='hub' # This is breaking autocomplete!
+
 alias gs='git status'
 alias gl='git log -p'
 alias ga='git add .'
@@ -25,3 +25,9 @@ export MANPATH=/usr/local/git/man:$MANPATH
 function git_prompt_info() {
   __git_ps1
 }
+
+
+# Alias 'git' to 'hub' wrapper, if hub is available
+if hub &> /dev/null; then
+	function git(){hub $@}
+fi
