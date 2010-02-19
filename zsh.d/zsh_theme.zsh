@@ -17,7 +17,7 @@ PROMPT=$PS1
 setopt prompt_subst
 
 PROMPT='
-%{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(__git_ps1)%{$fg[yellow]%}%# %{$reset_color%}'
+%{$fg_bold[blue]%}%n%{$reset_color%} %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(__git_ps1)%{$fg[yellow]%}%# %{$reset_color%}'
 
 RPROMPT='[%*]'
 
