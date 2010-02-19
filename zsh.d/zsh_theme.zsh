@@ -19,6 +19,7 @@ setopt prompt_subst
 PROMPT='
 %{$fg_bold[blue]%}%n %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(__git_ps1)%{$fg[yellow]%}%# %{$reset_color%}'
 
+RPROMPT='[%*]'
 
 function title {
   if [[ $TERM == "screen" ]]; then
