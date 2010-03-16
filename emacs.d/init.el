@@ -9,6 +9,9 @@
     (color-theme-initialize)
     (color-theme-railscasts)
 
+(require 'textmate)
+(textmate-mode)
+
 (defvar autosave-dir
    (concat "/tmp/emacs_autosaves/" (user-login-name) "/"))
   (make-directory autosave-dir t)
@@ -25,8 +28,7 @@
     (auto-fill-mode)
     (add-hook 'ruby-mode-hook
           '(lambda ()
-             (inf-ruby-keys)
-    ))
+             (inf-ruby-keys)))
 
 (global-set-key "\C-x !" 'shell)
 (global-set-key "\C-x x" 'send-to-buffer) ;; copies from top buffer to bottom
