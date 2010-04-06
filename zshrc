@@ -1,11 +1,4 @@
 #! /bin/zsh
-
-customzsh='/usr/local/Cellar/zsh/4.3.10/bin/zsh'
-if [[ -f "$customzsh" ]] && [ "$SHELL" != "$customzsh" ]; then
-  export SHELL=$customzsh
-  exec $customzsh
-fi
-
 export ZSH="$HOME/.zsh.d"
 
 # Add function path

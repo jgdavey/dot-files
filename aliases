@@ -5,7 +5,6 @@ alias g='grep -i'  #case insensitive grep
 alias h='history|g'
 alias ducks='du -cks * | sort -rn | head -20' # Lists the size of all the folders
 alias duh='du -chs *' # Lists the size of all the folders
-alias o='open .'
 
 alias home='cd ~' # the tilda is too hard to reach
 alias systail='tail -f -n0 /var/log/system.log'
@@ -19,14 +18,7 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 # rails stuff
 alias log='tail -f -0 ./log/*.log'
-alias ss='ruby ./script/server'
 alias sc='ruby ./script/console'
-alias sg='ruby ./script/generate'
-alias controller='script/generate controller'
-alias migration='script/generate migration'
-alias cdm='cap deploy:migrations'
-alias model='script/generate model'
-alias flush='dscacheutil -flushcache'
 alias db='rake db:migrate && rake db:test:prepare'
 
 # replacement netstat cmd to find ports used by apps on OS X

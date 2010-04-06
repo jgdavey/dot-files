@@ -52,14 +52,14 @@ begin
   Wirble.colorize
 
 rescue LoadError
-  puts "please run: `sudo gem install wirble`"
+  puts "please run: `[sudo] gem install wirble`"
 end
 
 begin
   require 'hirb'
   Hirb.enable
 rescue LoadError
-  puts "please run: `sudo gem install cldwalker-hirb --source http://gems.github.com`"
+  puts "please run: `[sudo] gem install hirb`"
 end
 
 class Object

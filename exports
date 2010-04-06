@@ -1,24 +1,4 @@
-if [[ -s ~/bin/ImageMagick-6.5.3 ]] ; then
-	# Image Magick
-	export MAGICK_HOME="$HOME/bin/ImageMagick-6.5.3"
-	export PATH="$MAGICK_HOME/bin:$PATH"
-	export MANPATH="$MAGICK_HOME/share/man:$MANPATH"
-	export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
-fi
-
-
-# mysql
-export PATH="/usr/local/mysql/bin/:$PATH"
-# local gems
-export PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
-# local binaries
-export PATH="$HOME/usr/local/bin:$HOME/bin:$HOME/bin/gitwtf/bin:$PATH"
-
-# homebrew manual entries
-export MANPATH="$HOME/share/man:$MANPATH"
-
-# Linux default: will be overridden later
-export EDITOR='nano -w'
+export EDITOR='emacs'
 
 export IRBRC="$HOME/.irbrc"
 export VISUAL=$EDITOR
@@ -46,10 +26,6 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LS_COLORS=$LSCOLORS
-
-
-# sets title of window to be user@host
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'
 
 # export HISTCONTROL=erasedups # I actually want duplicates because of profileme
 export HISTSIZE=1000000

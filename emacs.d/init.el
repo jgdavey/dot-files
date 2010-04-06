@@ -1,16 +1,9 @@
-
 (setq custom-file "~/.emacs-custom.el")
 (load custom-file 'noerror)
 
 (require 'cl)
 
 (progn (cd "~/.emacs.d") (normal-top-level-add-subdirs-to-load-path))
-(require 'color-theme)
-    (color-theme-initialize)
-    (color-theme-railscasts)
-
-(require 'textmate)
-(textmate-mode)
 
 (defvar autosave-dir
    (concat "/tmp/emacs_autosaves/" (user-login-name) "/"))
