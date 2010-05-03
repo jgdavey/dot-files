@@ -24,8 +24,10 @@ export COLOR_LIGHT_GRAY="\[\033[0;37m\]"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
-export LS_COLORS=$LSCOLORS
+export LSCOLORS=BxExfxdxCxegedabagacad
+
+# http://twistedcode.blogspot.com/2008/04/lscolors-explained.html
+export LS_COLORS='di=1;31:fi=0:ln=1;36:pi=5:so=5:bd=5:cd=5:or=37:ex=1;32:*.deb=90'
 
 # export HISTCONTROL=erasedups # I actually want duplicates because of profileme
 export HISTSIZE=1000000

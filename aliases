@@ -1,4 +1,4 @@
-alias ls='ls -lAp'
+alias ls='ls -lAp --color=auto'
 alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
 alias ...='.. ..'
 alias g='grep -i'  #case insensitive grep
