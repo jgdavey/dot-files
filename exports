@@ -1,6 +1,6 @@
-if [[ -s ~/bin/ImageMagick-6.5.3 ]] ; then
+if [[ -s ~/bin/ImageMagick-6.5.9 ]] ; then
 	# Image Magick
-	export MAGICK_HOME="$HOME/bin/ImageMagick-6.5.3"
+	export MAGICK_HOME="$HOME/bin/ImageMagick-6.5.9"
 	export PATH="$MAGICK_HOME/bin:$PATH"
 	export MANPATH="$MAGICK_HOME/share/man:$MANPATH"
 	export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
@@ -44,8 +44,9 @@ export COLOR_LIGHT_GRAY="\[\033[0;37m\]"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
-export LS_COLORS=$LSCOLORS
+export LSCOLORS=BxExfxdxCxegedabagacad
+# http://twistedcode.blogspot.com/2008/04/lscolors-explained.html
+export LS_COLORS='di=1;31:fi=0:ln=36:pi=5:so=5:bd=5:cd=5:or=37:ex=1;32:*.deb=90'
 
 
 # sets title of window to be user@host
