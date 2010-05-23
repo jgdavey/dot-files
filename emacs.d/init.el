@@ -33,3 +33,7 @@
 (global-set-key "\C-x !" 'shell)
 (global-set-key "\C-x x" 'send-to-buffer) ;; copies from top buffer to bottom
 (fset 'send-to-buffer "\C-@\C-[\C-f\C-e\C-[w\C-xo\C-y\C-m\C-xo\C-e\C-[OC")
+
+;; Set the frame to a more reasonable size
+(set-frame-size (selected-frame) 153 90)
+

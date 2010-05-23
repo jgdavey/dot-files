@@ -7,5 +7,10 @@ Autotest.add_hook :initialize do |autotest|
   false
 end
 
+begin
+  require 'redgreen/autotest'
+rescue LoadError => e
+end
+
 # Require this last
 require 'autotest/fsevent'
