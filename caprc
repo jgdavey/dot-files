@@ -1,5 +1,10 @@
 # Capistrano Global config file
-require 'capistrano_colors'
+begin
+  require 'capistrano_colors'
+rescue LoadError
+  puts "Could not load the 'capistrano_colors' plugin."
+  puts "You can install it with `gem install capistrano_colors`"
+end
 
 # Capistrano Colors custom config
 =begin
