@@ -1,4 +1,3 @@
-
 # __git_ps1 accepts 0 or 1 arguments (i.e., format string)
 # returns text to add to bash PS1 prompt (includes branch name)
 __git_ps1 ()
@@ -45,6 +44,11 @@ __git_ps1 ()
       fi
     fi
 
+    # Dirty Branch
+    if [[ -n $(git ls-files --exclude-standard -mo) ]]; then
+       r+=" ⚡"
+    fi
+
     if [ -n "${1-}" ]; then
       printf "$1" "${b##refs/heads/}$r"
     else
@@ -52,3 +56,4 @@ __git_ps1 ()
     fi
   fi
 }
+
