@@ -169,7 +169,7 @@ if executable("ack")
 endif
 
 " Color scheme
-" colorscheme vividchalk
+colorscheme railscasts
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -191,8 +191,8 @@ set ignorecase
 set smartcase
 
 " Tags
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-set tags=./tags;
+" let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+" set tags=./tags;
 
 let g:fuf_splitPathMatching=1
 
