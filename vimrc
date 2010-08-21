@@ -158,6 +158,10 @@ imap <C-L> <Space>=><Space>
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 
+if has("gui_running")
+    set guioptions=egmrt
+endif
+
 " Local config
 if filereadable(".vimrc.local")
   source .vimrc.local
