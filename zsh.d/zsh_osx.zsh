@@ -1,15 +1,17 @@
 #! /bin/zsh
 
 if [[ `uname -s` == 'Darwin' ]]; then
-  export EDITOR='mate -w'
-  export VISUAL=$EDITOR
-  export GEM_OPEN_EDITOR='mate'
-
   function manpdf() { man -t $@ | open -f -a Preview; }
   alias pubkey='cat ~/.ssh/*.pub | pbcopy && echo "Keys copied to clipboard"'
   alias hidefile='/usr/bin/SetFile -a "V"'
   alias showfile='/usr/bin/SetFile -a "v"'
 
+  export EDITOR='mvim'
+  export VISUAL=$EDITOR
+
+  alias vim='mvim'
+  alias vi='mvim'
+  alias gvim='mvim'
 
 function tab() {
   osascript 2>/dev/null <<EOF
