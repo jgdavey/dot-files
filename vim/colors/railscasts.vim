@@ -4,12 +4,55 @@
 " Maintainer:  Ryan Bates
 " License:     MIT
 
-set background=dark
+if has("gui_running")
+    set background=dark
+endif
 hi clear
 if exists("syntax_on")
-  syntax reset
+   syntax reset
 endif
-let g:colors_name = "railscasts"
+
+let colors_name = "railscasts"
+
+" First two functions adapted from inkpot.vim
+
+" map a urxvt cube number to an xterm-256 cube number
+fun! s:M(a)
+    return strpart("0245", a:a, 1) + 0
+endfun
+
+" map a urxvt colour to an xterm-256 colour
+fun! s:X(a)
+    if &t_Co == 88
+        return a:a
+    else
+        if a:a == 8
+            return 237
+        elseif a:a < 16
+            return a:a
+        elseif a:a > 79
+            return 232 + (3 * (a:a - 80))
+        else
+            let l:b = a:a - 16
+            let l:x = l:b % 4
+            let l:y = (l:b / 4) % 4
+            let l:z = (l:b / 16)
+            return 16 + s:M(l:x) + (6 * s:M(l:y)) + (36 * s:M(l:z))
+        endif
+    endif
+endfun
+
+function! E2T(a)
+    return s:X(a:a)
+endfunction
+
+function! s:choose(mediocre,good)
+    if &t_Co != 88 && &t_Co != 256
+        return a:mediocre
+    else
+        return s:X(a:good)
+    endif
+endfunction
 
 " Colors
 " Brown        #BC9357
@@ -20,6 +63,29 @@ let g:colors_name = "railscasts"
 " Light Green  #A5C160
 " Tan          #FFC66D
 " Red          #DA4938 
+
+hi link railsMethod         PreProc
+hi link rubyDefine          Keyword
+hi link rubySymbol          Constant
+hi link rubyAccess          rubyMethod
+hi link rubyAttribute       rubyMethod
+hi link rubyEval            rubyMethod
+hi link rubyException       rubyMethod
+hi link rubyInclude         rubyMethod
+hi link rubyStringDelimiter rubyString
+hi link rubyRegexp          Regexp
+hi link rubyRegexpDelimiter rubyRegexp
+"hi link rubyConstant        Variable
+"hi link rubyGlobalVariable  Variable
+"hi link rubyClassVariable   Variable
+"hi link rubyInstanceVariable Variable
+hi link javascriptRegexpString  Regexp
+hi link javascriptNumber        Number
+hi link javascriptNull          Constant
+highlight link diffAdded        String
+highlight link diffRemoved      Statement
+highlight link diffLine         PreProc
+highlight link diffSubname      Comment
 
 hi Normal     guifg=#E6E1DC guibg=#111111
 hi Cursor     guibg=#FFFFFF
@@ -34,8 +100,12 @@ hi Error      guifg=#FFFFFF guibg=#990000
 hi MatchParen guifg=NONE    guibg=#131313
 hi Title      guifg=#E6E1DC
 
-hi Comment    guifg=#BC9357 guibg=NONE     gui=italic
+hi Comment    guifg=#996633 guibg=NONE     gui=italic
 hi! link Todo Comment
+
+" Line endings, tab characters, when invisibles are shown
+hi SpecialKey    guifg=#333333 ctermfg=8
+hi NonText       guifg=#333333 ctermfg=8
 
 hi String     guifg=#A5C160
 hi! link Number String
