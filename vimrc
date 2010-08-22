@@ -49,6 +49,7 @@ nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
+set list
 
 set laststatus=2                  " Show the status line all the time
 
