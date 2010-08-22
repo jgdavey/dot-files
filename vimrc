@@ -39,9 +39,16 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-set tabstop=2                     " Global tab width.
+set tabstop=4                     " Global tab width.
+set softtabstop=2                 " Global tab width, soft tabs.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 
 set laststatus=2                  " Show the status line all the time
 
