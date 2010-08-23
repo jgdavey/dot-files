@@ -15,7 +15,7 @@ alias b='cd -'
 alias sprof='source ~/.bash_profile'
 
 # useful command to find what you should be aliasing:
-alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
+alias profileme="history 1 | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
 # rails stuff
 alias log='tail -f -0 ./log/*.log'

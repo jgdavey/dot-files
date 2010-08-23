@@ -1,4 +1,5 @@
-ENV["RUBY"] ||= `which ruby`.chomp # Allows RVM ruby version to be used, rather than system default
+# Allows RVM ruby version to be used, rather than system default
+ENV["RUBY"] ||= `which ruby`.chomp 
 
 begin
   require 'autotest/growl'
