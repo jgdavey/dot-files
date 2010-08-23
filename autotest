@@ -1,12 +1,19 @@
 ENV["RUBY"] ||= `which ruby`.chomp # Allows RVM ruby version to be used, rather than system default
 
-require 'autotest/growl'
+begin
+  require 'autotest/growl'
+rescue LoadError => e
+  puts 'You need to install autotest-growl for Growl support'
+end
 
 Autotest.add_hook :initialize do |autotest|
   %w{.git .svn .DS_Store ._* vendor/rails tmp doc}.each {|exception| autotest.add_exception(exception) }
   false
 end
 
-
-# Require this last
-require 'autotest/fsevent'
+begin
+  # Require this last
+  require 'autotest/fsevent'
+rescue LoadError => e
+  puts 'Install autotest-fsevent for more efficient file watching'
+end
