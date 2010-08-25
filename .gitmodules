@@ -37,3 +37,12 @@
 [submodule "vim/bundle/vim-rooter"]
 	path = vim/bundle/vim-rooter
 	url = git://github.com/airblade/vim-rooter.git
+[submodule "vim/bundle/vim-slurper"]
+	path = vim/bundle/vim-slurper
+	url = git://github.com/alowe/vim-slurper.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
