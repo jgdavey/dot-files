@@ -44,6 +44,8 @@ set softtabstop=2                 " Global tab width, soft tabs.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 
+let mapleader = ","               " This is easier to get to
+
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
