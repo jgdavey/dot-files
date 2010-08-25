@@ -56,7 +56,7 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-12.18(%l,%c%V%)\ %P
 
-colorscheme vividchalk
+colorscheme railscasts
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>

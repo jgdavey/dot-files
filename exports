@@ -1,7 +1,5 @@
 # mysql
 export PATH="/usr/local/mysql/bin/:$PATH"
-# local gems
-export PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
 # local binaries
 export PATH="$HOME/usr/local/bin:$HOME/bin:$HOME/sbin:$PATH"
 
