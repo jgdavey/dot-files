@@ -9,8 +9,6 @@ if [[ `uname -s` == 'Darwin' ]]; then
   export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
   export VISUAL=$EDITOR
 
-  alias vim='mvim'
-  alias vi='mvim'
   alias gvim='mvim'
 
 function tab() {
