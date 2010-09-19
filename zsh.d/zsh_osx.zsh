@@ -6,8 +6,8 @@ if [[ `uname -s` == 'Darwin' ]]; then
   alias hidefile='/usr/bin/SetFile -a "V"'
   alias showfile='/usr/bin/SetFile -a "v"'
 
-  export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
-  export VISUAL=$EDITOR
+#  export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+#  export VISUAL=$EDITOR
 
   alias gvim='mvim'
 
