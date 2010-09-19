@@ -23,3 +23,9 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[4~" end-of-line
 # bindkey ' ' magic-space # also do history expansion on space
+
+# edit command in EDITOR
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+

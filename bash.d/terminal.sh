@@ -60,11 +60,7 @@ function newin() {
    return 0
 }
 
-export EDITOR='mate -w'
-export GEM_OPEN_EDITOR='mate'
-
 function manpdf() { man -t $@ | open -f -a Preview; }
 alias pubkey='cat ~/.ssh/*.pub | pbcopy && echo "Keys copied to clipboard"'
 alias hidefile='/usr/bin/SetFile -a "V"'
 alias showfile='/usr/bin/SetFile -a "v"'
-alias readrails="mate `ruby -rubygems -e "puts( ['rails', 'activerecord', 'activeresource', 'actionpack', 'activesupport'].collect { |gem| gems = Gem.source_index.find_name(gem); gems.last.full_gem_path; }.join(' '))"`"
