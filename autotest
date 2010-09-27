@@ -1,3 +1,6 @@
+# ~/.autotest
+# vim:set ft=ruby tw=78 sw=2:
+
 # Allows RVM ruby version to be used, rather than system default
 ENV["RUBY"] ||= `which ruby`.chomp 
 

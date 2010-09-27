@@ -1,3 +1,6 @@
+# ~/.irbrc
+# vim:set ft=ruby sw=2 sts=2:
+
 require 'pp'
 require 'rubygems'
 
