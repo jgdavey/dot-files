@@ -1,6 +1,5 @@
 #! /bin/zsh
 
-alias gs='git status'
 alias gst='git status'
 alias gl='git log -p'
 alias ga='git add .'

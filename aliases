@@ -22,11 +22,7 @@ alias log='tail -f -0 ./log/*.log'
 alias ss='ruby ./script/server'
 alias sc='ruby ./script/console'
 alias sg='ruby ./script/generate'
-alias controller='script/generate controller'
-alias migration='script/generate migration'
 alias cdm='cap deploy:migrations'
-alias model='script/generate model'
-alias flush='dscacheutil -flushcache'
 alias db='rake db:migrate && rake db:test:prepare'
 
 # replacement netstat cmd to find ports used by apps on OS X
