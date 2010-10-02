@@ -1,29 +1,12 @@
 # ~/.exports
 # vim:set ft=sh sw=2 sts=2:
 
-# mysql
-export PATH="/usr/local/mysql/bin/:$PATH"
-# local binaries
-export PATH="$HOME/usr/local/bin:$HOME/bin:$HOME/sbin:$PATH"
-
-# homebrew manual entries
-export MANPATH="$HOME/share/man:$MANPATH"
-
-# Linux default: will be overridden later
-export EDITOR='vim'
-export VISUAL=$EDITOR
-
-export IRBRC="$HOME/.irbrc"
-
-export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=BxExfxdxCxegedabagacad
+
 # http://twistedcode.blogspot.com/2008/04/lscolors-explained.html
 export LS_COLORS='di=1;31:fi=0:ln=36:pi=5:so=5:bd=5:cd=5:or=37:ex=1;32:*.deb=90'
 
 # sets title of window to be user@host
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'
-
-# export HISTCONTROL=erasedups # I actually want duplicates because of profileme
-export HISTSIZE=1000000

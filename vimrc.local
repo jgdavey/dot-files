@@ -1,8 +1,5 @@
 " Vim configuration file
-silent! call pathogen#helptags()
-
-set nocompatible
-
+" silent! call pathogen#helptags()
 set hidden                        " Handle multiple buffers better.
 
 set ignorecase                    " Case-insensitive searching.
@@ -25,7 +22,7 @@ set expandtab                     " Use spaces instead of tabs
 
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Bitstream\ Vera\ Sans\ Mono:h12 guioptions-=T columns=120 lines=70 number
+  autocmd GuiEnter * set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 augroup END
 
 " Shortcut to rapidly toggle `set list`

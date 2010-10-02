@@ -1,11 +1,7 @@
-unalias ss
-unalias sg
-unalias sc
-
-export RAILS3SCRIPT="./script/rails"
+export RAILS_3_SCRIPT="./script/rails"
 
 function ss() {
-	if [[ -f $RAILS3SCRIPT ]] ; then # We're using Rails 3
+	if [[ -f $RAILS_3_SCRIPT ]] ; then # We're using Rails 3
 		./script/rails server $@
 	else
 		./script/server $@
@@ -13,7 +9,7 @@ function ss() {
 }
 
 function sg() {
-	if [[ -f $RAILS3SCRIPT ]] ; then # We're using Rails 3
+	if [[ -f $RAILS_3_SCRIPT ]] ; then # We're using Rails 3
 		./script/rails generate $@
 	else
 		./script/generate $@
@@ -21,7 +17,7 @@ function sg() {
 }
 
 function sc() {
-	if [[ -f $RAILS3SCRIPT ]] ; then # We're using Rails 3
+	if [[ -f $RAILS_3_SCRIPT ]] ; then # We're using Rails 3
 		./script/rails console $@
 	else
 		./script/console $@
