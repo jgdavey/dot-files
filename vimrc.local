@@ -11,6 +11,8 @@ set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
+set wildmode=list:longest,full    " First tab shows completions, second interactively chooses one.
+
 set visualbell                    " No beeping.
 
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
