@@ -55,14 +55,14 @@ begin
   Wirble.colorize
 
 rescue LoadError
-  puts "please run: `sudo gem install wirble`"
+  puts "please run: `gem install wirble`"
 end
 
 begin
   require 'hirb'
   Hirb.enable
 rescue LoadError
-  puts "please run: `sudo gem install cldwalker-hirb --source http://gems.github.com`"
+  puts "Hirb is not installed. Install with `gem install hirb`"
 end
 
 class Object
@@ -74,10 +74,17 @@ class Object
   end
 end
 
-# Log to STDOUT if in Rails
-if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
-  require 'logger'
-  RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+def show_log
+  if defined?(Rails) && Rails.respond_to?(:logger=) && defined?(ActiveRecord)
+    @original_logger = ActiveRecord::Base.logger
+    Rails.logger = ActiveRecord::Base.logger = Logger.new($stderr)
+  end
+end
+
+def hide_log
+  if defined?(Rails) && Rails.respond_to?(:logger=) && defined?(ActiveRecord)
+    Rails.logger = ActiveRecord::Base.logger = @original_logger
+  end
 end
 
 def copy(str)
