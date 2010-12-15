@@ -6,56 +6,46 @@ __git_ps1 ()
   if [ -n "$g" ]; then
     local r
     local b
-    if [ -d "$g/rebase-apply" ]
-    then
-      if test -f "$g/rebase-apply/rebasing"
-      then
+    local d
+    local s
+    # Rebasing
+    if [ -d "$g/rebase-apply" ] ; then
+      if test -f "$g/rebase-apply/rebasing" ; then
         r="|REBASE"
-      elif test -f "$g/rebase-apply/applying"
-      then
-        r="|AM"
-      else
-        r="|AM/REBASE"
       fi
       b="$(git symbolic-ref HEAD 2>/dev/null)"
-    elif [ -f "$g/rebase-merge/interactive" ]
-    then
+    # Interactive rebase
+    elif [ -f "$g/rebase-merge/interactive" ] ; then
       r="|REBASE-i"
       b="$(cat "$g/rebase-merge/head-name")"
-    elif [ -d "$g/rebase-merge" ]
-    then
-      r="|REBASE-m"
-      b="$(cat "$g/rebase-merge/head-name")"
-    elif [ -f "$g/MERGE_HEAD" ]
-    then
+    # Merging
+    elif [ -f "$g/MERGE_HEAD" ] ; then
       r="|MERGING"
       b="$(git symbolic-ref HEAD 2>/dev/null)"
     else
-      if [ -f "$g/BISECT_LOG" ]
-      then
+      if [ -f "$g/BISECT_LOG" ] ; then
         r="|BISECTING"
       fi
-      if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
-      then
-        if ! b="$(git describe --exact-match HEAD 2>/dev/null)"
-        then
+      if ! b="$(git symbolic-ref HEAD 2>/dev/null)" ; then
+        if ! b="$(git describe --exact-match HEAD 2>/dev/null)" ; then
           b="$(cut -c1-7 "$g/HEAD")..."
         fi
       fi
     fi
 
     # Dirty Branch
-    [[ -n $(git ls-files --exclude-standard -mo) ]] && r+=" "
-    [[ $(git status 2> /dev/null | grep "Untracked files:") != "" ]] && r+='+'
-    [[ $(git status 2> /dev/null | grep modified:) != "" ]] && r+='*'
-    [[ $(git status 2> /dev/null | grep deleted:) != "" ]] && r+='-'
+    d=''
+    s=$(git status --porcelain 2> /dev/null)
+    [[ $s =~ "\?\? " ]] && d+='+'
+    [[ $s =~ " M " ]] && d+='*'
+    [[ $s =~ " D " ]] && d+='-'
+    [[ -n $d ]] && d=" $d"
 
 
     if [ -n "${1-}" ]; then
-      printf "$1" "${b##refs/heads/}$r"
+      printf "$1" "${b##refs/heads/}$r$d"
     else
-      printf "(%s) " "${b##refs/heads/}$r"
+      printf "(%s) " "${b##refs/heads/}$r$d"
     fi
   fi
 }
-
