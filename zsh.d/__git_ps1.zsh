@@ -45,9 +45,11 @@ __git_ps1 ()
     fi
 
     # Dirty Branch
-    if [[ -n $(git ls-files --exclude-standard -mo) ]]; then
-       r+=" ⚡"
-    fi
+    [[ -n $(git ls-files --exclude-standard -mo) ]] && r+=" "
+    [[ $(git status 2> /dev/null | grep "Untracked files:") != "" ]] && r+='+'
+    [[ $(git status 2> /dev/null | grep modified:) != "" ]] && r+='*'
+    [[ $(git status 2> /dev/null | grep deleted:) != "" ]] && r+='-'
+
 
     if [ -n "${1-}" ]; then
       printf "$1" "${b##refs/heads/}$r"
