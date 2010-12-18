@@ -1,5 +1,5 @@
 " Vim configuration file
-" silent! call pathogen#helptags()
+silent! call pathogen#helptags()
 set hidden                        " Handle multiple buffers better.
 
 set ignorecase                    " Case-insensitive searching.

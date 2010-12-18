@@ -28,7 +28,8 @@ export COLOR_BROWN="\[\033[0;33m\]"
 export COLOR_YELLOW="\[\033[1;33m\]"
 export COLOR_GRAY="\[\033[0;30m\]"
 export COLOR_LIGHT_GRAY="\[\033[0;37m\]"
-export PS1="\n${COLOR_LIGHT_BLUE}\u ${COLOR_CYAN}\w ${COLOR_LIGHT_GREEN}\$(__git_ps1 '(%s) ')${COLOR_YELLOW}$ ${COLOR_NC}"
+
+# export PS1="\n${COLOR_LIGHT_BLUE}\u ${COLOR_CYAN}\w ${COLOR_LIGHT_GREEN}\$(__git_ps1 '(%s) ')${COLOR_YELLOW}$ ${COLOR_NC}"
 
 # readline settings
 bind "set completion-ignore-case on"
