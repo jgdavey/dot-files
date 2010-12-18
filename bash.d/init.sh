@@ -3,7 +3,6 @@ system_name=`uname -s` # Sets 'Darwin' or 'Linux' etc
 alias sprof='source ~/.bash_profile'
 
 source ~/.exports
-source ~/.bash.d/git.sh
 source ~/.aliases
 
 if [ $system_name == 'Darwin' ]; then
