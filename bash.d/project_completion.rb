@@ -16,7 +16,7 @@ class ProjectCompletion
   end
 
   def projects
-    (`ls ~/Sites/`.split )
+    (`ls ~/current/`.split )
   end
 end
 

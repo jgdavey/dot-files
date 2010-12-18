@@ -27,9 +27,5 @@ if [[ $HOME == "/Users/josh" ]]; then
 fi
 
 # changing directory to code project
-function s { cd ~/Sites/$1; }
-complete -C ~/.bash.d/project_completion.rb -o default s
-
-
-# Automatically add SSH identity for forwarding
-ssh-add &> /dev/null
+function c { cd ~/current/$1; }
+complete -C ~/.bash.d/project_completion.rb -o default c
