@@ -26,6 +26,11 @@ alias db='rake db:migrate && rake db:test:prepare'
 # replacement netstat cmd to find ports used by apps on OS X
 alias netstat="sudo lsof -i -P"
 
+function manpdf() { man -t $@ | open -f -a Preview; }
+alias pubkey='cat ~/.ssh/*.pub | pbcopy && echo "Keys copied to clipboard"'
+alias hidefile='/usr/bin/SetFile -a "V"'
+alias showfile='/usr/bin/SetFile -a "v"'
+
 function f() { find * -name $1; }
 
 function extract() {
