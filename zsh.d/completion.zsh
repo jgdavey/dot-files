@@ -4,20 +4,16 @@ unsetopt flowcontrol
 
 WORDCHARS=''
 
-setopt noautomenu
 setopt complete_in_word
 setopt always_to_end
 setopt correct
-
-
-autoload -U compinit
-compinit
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # Show as a selectable menu
-zstyle ':completion:*:*:*:*:*' menu yes select
+# setopt noautomenu
+# zstyle ':completion:*:*:*:*:*' menu yes select
 
 # Shows files in color, same as LSCOLOR
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

@@ -62,7 +62,6 @@ begin
   require 'hirb'
   Hirb.enable
 rescue LoadError
-  puts "Hirb is not installed. Install with `gem install hirb`"
 end
 
 class Object
