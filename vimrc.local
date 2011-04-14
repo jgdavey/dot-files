@@ -30,7 +30,13 @@ augroup vimrc
   autocmd GuiEnter * set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 augroup END
 
-colorscheme vividchalk
+if $TERM_PROGRAM == 'iTerm.app'
+    set term=gnome-256color
+    colorscheme railscasts
+else
+    colorscheme vividchalk
+endif
+
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
