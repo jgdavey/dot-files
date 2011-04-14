@@ -18,5 +18,5 @@ shopt -s histappend
 complete -C ~/.bash.d/rake-completion.rb -o default rake
 
 # changing directory to code project
-function c { cd ~/current/$1; }
+function c { cd ~/code/$1; }
 complete -C ~/.bash.d/project_completion.rb -o default c
