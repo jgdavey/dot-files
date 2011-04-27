@@ -1,19 +1,13 @@
 " Vim configuration file
 silent! call pathogen#helptags()
+
 set hidden                        " Handle multiple buffers better.
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
 set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
 
 set wildmode=list:longest,full    " First tab shows completions, second interactively chooses one.
 
-set visualbell                    " No beeping.
+set formatprg=par
 
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
@@ -37,12 +31,6 @@ else
     colorscheme vividchalk
 endif
 
-
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
-
-set list
-
 " Bundle Open command, from Bernerd Schaefer
 " Call with :BO <gemname>
 
@@ -57,5 +45,3 @@ endfunction
 
 " :BO capybara
 :command! -nargs=1 BO :call s:BundleOpen(<q-args>)
-
-set formatprg=par
