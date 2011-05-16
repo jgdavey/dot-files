@@ -14,6 +14,7 @@ alias home='cd ~' # the tilda is too hard to reach
 alias systail='tail -f -n0 /var/log/system.log'
 alias aptail='tail -f -n0 /var/log/apache*/*log'
 alias b='cd -'
+alias harvest='rvm use 1.9.2@harvester;harvester;cd ..;cd -'
 
 # useful command to find what you should be aliasing:
 alias profileme="history 1 | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"

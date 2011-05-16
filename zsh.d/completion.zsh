@@ -6,7 +6,6 @@ WORDCHARS=''
 
 compinit
 
-setopt complete_in_word
 setopt always_to_end
 setopt correct
 
