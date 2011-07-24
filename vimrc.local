@@ -32,4 +32,4 @@ map <F4> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<
 
 
 " :BO capybara
-:command! -nargs=1 BO :call s:BundleOpen(<q-args>)
+:command! -nargs=1 BO :BundleOpen(<q-args>)
