@@ -4,6 +4,8 @@
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=BxExfxdxCxegedabagacad
+export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
+export NODE_PATH="/usr/local/lib/node"
 
 # http://twistedcode.blogspot.com/2008/04/lscolors-explained.html
 export LS_COLORS='di=1;31:fi=0:ln=36:pi=5:so=5:bd=5:cd=5:or=37:ex=1;32:*.deb=90'
