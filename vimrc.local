@@ -31,5 +31,7 @@ endif
 map <F4> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 
+
+
 " :BO capybara
-:command! -nargs=1 BO :BundleOpen(<q-args>)
+command! -nargs=1 BO :BundleOpen <q-args>
