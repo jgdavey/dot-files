@@ -28,10 +28,16 @@ else
     colorscheme vividchalk
 endif
 
+function! RubyInfo()
+ruby << EOF
+  puts RUBY_VERSION
+EOF
+endfunction
+
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-
-
+" Insert header
+map <leader>h O<C-R>=strftime("%A %B %e, %Y")<CR><Esc>"yyy"yp0v$hr=o<CR><CR><ESC>k
 
 " :BO capybara
 command! -nargs=1 BO :BundleOpen <q-args>
