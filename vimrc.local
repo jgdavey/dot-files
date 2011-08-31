@@ -22,7 +22,6 @@ augroup vimrc
 augroup END
 
 if $TERM_PROGRAM == 'iTerm.app'
-    set term=gnome-256color
     colorscheme railscasts
 else
     colorscheme vividchalk
