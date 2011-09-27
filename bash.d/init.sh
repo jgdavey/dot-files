@@ -5,7 +5,6 @@ source ~/.aliases
 
 if [ $system_name == 'Darwin' ]; then
   source ~/.gemdoc
-  source ~/.bash.d/terminal.sh
 fi
 
 # readline settings
