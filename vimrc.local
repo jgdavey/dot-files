@@ -18,7 +18,9 @@ set splitright
 
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+  autocmd GuiEnter * set guifont=Menlo:h15
+  " Harvest stuff
+  autocmd FileType markdown nmap <silent> <buffer> <leader>t <Plug>InsertTimestamp
 augroup END
 
 if $TERM_PROGRAM == 'iTerm.app'
