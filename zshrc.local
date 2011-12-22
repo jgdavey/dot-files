@@ -1,14 +1,71 @@
 #! /bin/zsh
 
-export ZSH="$HOME/.zsh.d"
-
-# Add function path
-fpath=($ZSH/func $fpath)
-autoload -U $ZSH/func/*(:t)
-
 ## Load some aliases, exports from BASH
 source "$HOME/.exports"
 source "$HOME/.aliases"
 
-# Load all .zsh files under ~/.zsh.d/
-for config_file ($ZSH/*.zsh) source $config_file
+# Extra Bindings
+
+bindkey "^[[5~" up-line-or-history
+bindkey "^[[6~" down-line-or-history
+
+# make search up and down work, so partially type and hit up/down to find relevant stuff
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
+bindkey "^[[H" beginning-of-line
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[4~" end-of-line
+
+# Completion
+unsetopt flowcontrol
+WORDCHARS=''
+compinit
+
+setopt always_to_end
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# Shows files in color, same as LSCOLOR
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' menu select=1 _complete _approximate
+
+# insert all expansions for expand completer
+zstyle ':completion:*:expand:*' tag-order all-expansions
+
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitkeep \;'
+
+harvest() {
+  local dir="`pwd`"
+  rvm use 1.9.2-p290@harvester
+  harvester $@
+  cd
+  cd $dir
+}
+
+# History
+
+setopt hist_ignore_dups # ignore duplication command history list
+setopt share_history # share command history data
+setopt hist_verify
+setopt inc_append_history share_history
+setopt extended_history
+setopt hist_expire_dups_first
+
+setopt local_options # allow functions to have local options
+setopt local_traps # allow functions to have local traps
+setopt no_bg_nice # don't nice background tasks
+setopt no_list_beep
+setopt ignore_eof
+
+autoload colors; colors;
+
+# Setup the prompt with pretty colors
+setopt prompt_subst
+
+PROMPT='
+%{$fg_bold[blue]%}%n%{$reset_color%}%{$fg[magenta]%}@%{$fg_bold[magenta]%}%m%{$reset_color%} %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info)%{$fg[yellow]%}%# %{$reset_color%}'

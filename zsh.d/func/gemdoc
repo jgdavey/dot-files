@@ -1,1 +1,0 @@
-open $GEM_HOME/doc/`ls $GEM_HOME/doc | grep $1 | sort | tail -n1 | awk '{print $NF}'`rdoc/index.html

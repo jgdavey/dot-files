@@ -1,2 +1,0 @@
-#compdef gemdoc
-_files -W $GEM_HOME/doc
