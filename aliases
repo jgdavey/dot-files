@@ -23,7 +23,7 @@ alias pubkey='cat ~/.ssh/*.pub | pbcopy && echo "Keys copied to clipboard"'
 alias hidefile='/usr/bin/SetFile -a "V"'
 alias showfile='/usr/bin/SetFile -a "v"'
 
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias grm="git status --porcelain | awk '/^ D/{ print \$2 }' | xargs git rm"
 alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitkeep \;'
 
 function f() { find * -name $1; }
