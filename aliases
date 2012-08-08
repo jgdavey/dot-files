@@ -1,19 +1,13 @@
 # ~/.aliases
 # vim:set ft=sh sw=2 sts=2:
 
-alias ls='ls -lAp'
 alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
 alias ...='.. ..'
-alias g='grep -i'  #case insensitive grep
+alias g='grep -i'
 alias h='history|g'
 alias ducks='du -cks * | sort -rn | head -20' # Lists the size of all the folders
 alias duh='du -chs *' # Lists the size of all the folders
 alias o='open .'
-
-alias home='cd ~' # the tilda is too hard to reach
-alias systail='tail -f -n0 /var/log/system.log'
-alias aptail='tail -f -n0 /var/log/apache*/*log'
-alias b='cd -'
 
 # useful command to find what you should be aliasing:
 alias profileme="history 1 | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
@@ -21,12 +15,10 @@ alias profileme="history 1 | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}
 # rails stuff
 alias log='tail -f -0 ./log/*.log'
 alias cdm='cap deploy:migrations'
-alias db='rake db:migrate && rake db:test:prepare'
 
 # replacement netstat cmd to find ports used by apps on OS X
 alias netstat="sudo lsof -i -P"
 
-function manpdf() { man -t $@ | open -f -a Preview; }
 alias pubkey='cat ~/.ssh/*.pub | pbcopy && echo "Keys copied to clipboard"'
 alias hidefile='/usr/bin/SetFile -a "V"'
 alias showfile='/usr/bin/SetFile -a "v"'
