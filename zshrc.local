@@ -36,17 +36,6 @@ zstyle ':completion:*' menu select=1 _complete _approximate
 # insert all expansions for expand completer
 zstyle ':completion:*:expand:*' tag-order all-expansions
 
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitkeep \;'
-
-harvest() {
-  local dir="`pwd`"
-  rvm use 1.9.2-p290@harvester
-  harvester $@
-  cd
-  cd $dir
-}
-
 # History
 
 setopt hist_ignore_dups # ignore duplication command history list
