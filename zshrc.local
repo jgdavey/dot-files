@@ -51,16 +51,13 @@ harvest() {
 
 setopt hist_ignore_dups # ignore duplication command history list
 setopt share_history # share command history data
-setopt hist_verify
 setopt inc_append_history share_history
 setopt extended_history
 setopt hist_expire_dups_first
 
 setopt local_options # allow functions to have local options
-setopt local_traps # allow functions to have local traps
 setopt no_bg_nice # don't nice background tasks
 setopt no_list_beep
-setopt ignore_eof
 
 autoload colors; colors;
 
@@ -69,3 +66,7 @@ setopt prompt_subst
 
 PROMPT='
 %{$fg_bold[blue]%}%n%{$reset_color%}%{$fg[magenta]%}@%{$fg_bold[magenta]%}%m%{$reset_color%} %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info)%{$fg[yellow]%}%# %{$reset_color%}'
+
+# Alternate prompt for screencasts
+# PROMPT='
+# %{$fg[cyan]%}%~ %{$fg[yellow]%}%# %{$reset_color%}'
