@@ -1,12 +1,9 @@
 " Vim configuration file
-set hidden                        " Handle multiple buffers better.
 set number                        " Show line numbers.
 
 set wildmode=list:longest,full    " First tab shows completions, second interactively chooses one.
 
 set formatprg=par
-
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set tabstop=4                     " Global tab width.
 set softtabstop=2                 " Global tab width, soft tabs.
@@ -19,15 +16,11 @@ set splitright
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Menlo:h15
-  " Harvest stuff
-  autocmd FileType markdown nmap <silent> <buffer> <leader>t <Plug>InsertTimestamp
+  autocmd User Rails Rnavcommand jmodel app/assets/javascripts/models -suffix=.js.coffee -default=model()
+  autocmd User Rails Rnavcommand jview app/assets/javascripts/views -suffix=.js.coffee -default=model()
 augroup END
 
-if $TERM_PROGRAM == 'iTerm.app'
-    colorscheme railscasts
-else
-    colorscheme vividchalk
-endif
+colorscheme railscasts
 
 function! RubyInfo()
 ruby << EOF
@@ -37,8 +30,3 @@ endfunction
 
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" Insert header
-map <leader>h O<C-R>=strftime("%A %B %e, %Y")<CR><Esc>"yyy"yp0v$hr=o<CR><CR><ESC>k
-
-" :BO capybara
-command! -nargs=1 BO :BundleOpen <q-args>
