@@ -1,7 +1,5 @@
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
-set -g status-right "#(~/bin/battery) | #(whoami)@#(hostname) | %b %-e %R "
+set -g status-right "#(~/bin/battery) | #(whoami)@#(hostname) | %b %-e %-I:%M%p "
 
-set -g status-left-length 20
-set -g status-bg colour2
-set -g status-left '#[fg=colour235,bg=colour76,bold] #S '
+set -g status-right-length 100

@@ -74,7 +74,7 @@ case $(uname -s) in
                 ext="Yes";;
         esac
 
-        ioreg -c AppleSmartBattery -w0 | \
+        ioreg -c AppleSmartBattery -r AppleSmartBattery -w0 | \
         grep -o '"[^"]*" = [^ ]*' | \
         sed -e 's/= //g' -e 's/"//g' | \
         sort | \
