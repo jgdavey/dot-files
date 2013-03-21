@@ -3,18 +3,13 @@
 
 alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
 alias ...='.. ..'
-alias g='grep -i'
-alias h='history|g'
-alias ducks='du -cks * | sort -rn | head -20' # Lists the size of all the folders
-alias duh='du -chs *' # Lists the size of all the folders
-alias o='open .'
+alias ducks='duh | sort -rn | head -20' # Lists the size of all the folders
 
 # useful command to find what you should be aliasing:
 alias profileme="history 1 | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
 # rails stuff
 alias log='tail -f -0 ./log/*.log'
-alias cdm='cap deploy:migrations'
 
 # replacement netstat cmd to find ports used by apps on OS X
 alias netstat="sudo lsof -i -P"
@@ -25,6 +20,11 @@ alias showfile='/usr/bin/SetFile -a "v"'
 
 alias grm="git status --porcelain | awk '/^ D/{ print \$2 }' | xargs git rm"
 alias touch_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitkeep \;'
+
+duh() {
+  files=${1-"."}
+  du -ch -d1 $files
+}
 
 function f() { find * -name $1; }
 

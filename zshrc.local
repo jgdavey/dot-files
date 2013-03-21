@@ -4,6 +4,10 @@
 source "$HOME/.exports"
 source "$HOME/.aliases"
 
+cdpath=(
+  $HASHROCKET_DIR
+)
+
 # Extra Bindings
 
 bindkey "^[[5~" up-line-or-history
