@@ -22,13 +22,12 @@ augroup END
 
 colorscheme railscasts
 
-function! RubyInfo()
-ruby << EOF
-  puts RUBY_VERSION
-EOF
-endfunction
+let g:use_cursor_shapes = 1
 
 nnoremap <Space> za
 
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+if exists($TMUX)
+  nnoremap <leader>p :set paste \| r!tmux show-buffer \| set nopaste<CR>
+endif
