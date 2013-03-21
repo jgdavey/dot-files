@@ -6,7 +6,6 @@ export CLICOLOR=1
 export LSCOLORS=BxExfxdxCxegedabagacad
 export PYTHONPATH="/usr/local/lib/python2.6/site-packages/:$PYTHONPATH"
 export NODE_PATH="/usr/local/lib/node"
-export CLASSPATH="$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar"
 
 # http://twistedcode.blogspot.com/2008/04/lscolors-explained.html
 export LS_COLORS='di=1;31:fi=0:ln=36:pi=5:so=5:bd=5:cd=5:or=37:ex=1;32:*.deb=90'
@@ -14,5 +13,6 @@ export LS_COLORS='di=1;31:fi=0:ln=36:pi=5:so=5:bd=5:cd=5:or=37:ex=1;32:*.deb=90'
 # sets title of window to be user@host
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'
 
-# use when llvm isn't working
-# export CC=/usr/bin/gcc-4.2
+export PGHOST="/tmp"
+
+export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
