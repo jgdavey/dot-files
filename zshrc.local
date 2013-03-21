@@ -53,7 +53,7 @@ autoload colors; colors;
 setopt prompt_subst
 
 PROMPT='
-%{$fg_bold[blue]%}%n%{$reset_color%}%{$fg[magenta]%}@%{$fg_bold[magenta]%}%m%{$reset_color%} %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info)%{$fg[yellow]%}%# %{$reset_color%}'
+%{$fg_bold[magenta]%}%m%{$reset_color%} %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info)%{$fg[yellow]%}%# %{$reset_color%}'
 
 # Alternate prompt for screencasts
 # PROMPT='
