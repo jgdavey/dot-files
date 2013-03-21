@@ -1,4 +1,3 @@
-" Vim configuration file
 set number                        " Show line numbers.
 
 set wildmode=list:longest,full    " First tab shows completions, second interactively chooses one.
@@ -18,6 +17,7 @@ augroup vimrc
   autocmd GuiEnter * set guifont=Menlo:h15
   autocmd User Rails Rnavcommand jmodel app/assets/javascripts/models -suffix=.js.coffee -default=model()
   autocmd User Rails Rnavcommand jview app/assets/javascripts/views -suffix=.js.coffee -default=model()
+  autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 colorscheme railscasts
@@ -27,6 +27,8 @@ ruby << EOF
   puts RUBY_VERSION
 EOF
 endfunction
+
+nnoremap <Space> za
 
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
