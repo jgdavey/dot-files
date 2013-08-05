@@ -9,20 +9,47 @@ set softtabstop=2                 " Global tab width, soft tabs.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 
-set splitbelow
-set splitright
+function! s:clojure_test_file()
+  let ns = fireplace#ns()
+  if ns =~# '-test$'
+    return ns
+  endif
+
+  let alternates = [ns . '-test', substitute(ns, '\.', '.test.', '')]
+  for ns in alternates
+    let file = substitute(ns, '\.', '/', 'g')
+    let file = substitute(file, '-', '_', 'g')
+    let path = fireplace#findresource(file)
+    if !empty(path)
+      return ns
+    endif
+  endfor
+  return ''
+endfunction
+
+function! s:run_clojure_test()
+  let testns = s:clojure_test_file()
+  if !empty(testns)
+    write
+    silent Require
+    return Send_to_Tmux("(clojure.test/run-tests '".testns.")\n")
+  else
+    echo "No clojure test file found"
+  endif
+endfunction
 
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Menlo:h15
-  autocmd User Rails Rnavcommand jmodel app/assets/javascripts/models -suffix=.js.coffee -default=model()
-  autocmd User Rails Rnavcommand jview app/assets/javascripts/views -suffix=.js.coffee -default=model()
   autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType clojure map <buffer> <leader>t :<C-U>call <SID>run_clojure_test()<CR>
 augroup END
 
 colorscheme railscasts
 
 let g:use_cursor_shapes = 1
+
+let g:turbux_runner = 'tslime'
 
 nnoremap <Space> za
 
