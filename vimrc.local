@@ -1,7 +1,5 @@
 set number                        " Show line numbers.
 
-set wildmode=list:longest,full    " First tab shows completions, second interactively chooses one.
-
 set formatprg=par
 
 set tabstop=4                     " Global tab width.
@@ -9,40 +7,10 @@ set softtabstop=2                 " Global tab width, soft tabs.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 
-function! s:clojure_test_file()
-  let ns = fireplace#ns()
-  if ns =~# '-test$'
-    return ns
-  endif
-
-  let alternates = [ns . '-test', substitute(ns, '\.', '.test.', '')]
-  for ns in alternates
-    let file = substitute(ns, '\.', '/', 'g')
-    let file = substitute(file, '-', '_', 'g')
-    let path = fireplace#findresource(file)
-    if !empty(path)
-      return ns
-    endif
-  endfor
-  return ''
-endfunction
-
-function! s:run_clojure_test()
-  let testns = s:clojure_test_file()
-  if !empty(testns)
-    write
-    silent Require
-    return Send_to_Tmux("(clojure.test/run-tests '".testns.")\n")
-  else
-    echo "No clojure test file found"
-  endif
-endfunction
-
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Menlo:h15
   autocmd FileType vim setlocal foldmethod=marker
-  autocmd FileType clojure map <buffer> <leader>t :<C-U>call <SID>run_clojure_test()<CR>
 augroup END
 
 colorscheme railscasts
@@ -50,10 +18,6 @@ colorscheme railscasts
 let g:use_cursor_shapes = 1
 
 let g:turbux_runner = 'tslime'
-
-nnoremap <Space> za
-
-map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'. synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 if exists($TMUX)
   nnoremap <leader>p :set paste \| r!tmux show-buffer \| set nopaste<CR>
