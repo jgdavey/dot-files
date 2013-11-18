@@ -58,3 +58,6 @@ PROMPT='
 # Alternate prompt for screencasts
 # PROMPT='
 # %{$fg[cyan]%}%~ %{$fg[yellow]%}%# %{$reset_color%}'
+
+# hr command/completions setup
+eval "$(/Users/jgdavey/hashrocket/hr/bin/hr init - zsh)"

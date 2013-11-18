@@ -1,2 +1,4 @@
 source "$HOME/.exports"
 source "$HOME/.aliases"
+
+eval "$(/Users/jgdavey/hashrocket/hr/bin/hr init - bash)"
