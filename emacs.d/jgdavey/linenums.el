@@ -1,4 +1,4 @@
-(require 'linum-off)
+; (require 'linum-off)
 (global-linum-mode t)
 
 ;; From http://www.emacswiki.org/LineNumbers
