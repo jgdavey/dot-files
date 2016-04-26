@@ -1,11 +1,5 @@
 set number                        " Show line numbers.
-
 set formatprg=par
-
-set tabstop=4                     " Global tab width.
-set softtabstop=2                 " Global tab width, soft tabs.
-set shiftwidth=2                  " And again, related.
-set expandtab                     " Use spaces instead of tabs
 
 augroup vimrc
   autocmd!
@@ -16,7 +10,6 @@ augroup END
 colorscheme railscasts
 
 let g:use_cursor_shapes = 1
-
 let g:turbux_runner = 'tslime'
 
 if exists($TMUX)

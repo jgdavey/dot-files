@@ -11,5 +11,3 @@ set guioptions-=r                 " Don't show right scrollbar
 set guioptions-=L                 " Don't show left scrollbar
 
 colorscheme railscasts
-" Use the same symbols as TextMate for tabstops and EOLs
-" set listchars=tab:▸\ ,eol:¬

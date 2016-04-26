@@ -56,8 +56,7 @@ PROMPT='
 %{$fg_bold[magenta]%}%m%{$reset_color%} %{$fg[cyan]%}%~ %{$fg_bold[green]%}$(git_prompt_info)%{$fg[yellow]%}%# %{$reset_color%}'
 
 # Alternate prompt for screencasts
-# PROMPT='
-# %{$fg[cyan]%}%~ %{$fg[yellow]%}%# %{$reset_color%}'
+# PROMPT='%{$fg[cyan]%}%~ %{$fg[yellow]%}%# %{$reset_color%}'
 
 # hr command/completions setup
 eval "$(/Users/jgdavey/hashrocket/hr/bin/hr init - zsh)"

@@ -10,8 +10,8 @@
 # is searched (like 4dos for e.g.).
 # Note to get rid of a line just Ctrl-C
 #
-"\e[B": history-search-forward
-"\e[A": history-search-backward
+# "\e[B": history-search-forward
+# "\e[A": history-search-backward
  
 $if Bash
   #do history expansion when space entered
