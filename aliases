@@ -47,3 +47,14 @@ function extract() {
         echo "'$1' is not a valid file"
     fi
 }
+
+clj() {
+  version="1.8.0"
+  clojure="$HOME/.m2/repository/org/clojure/clojure/$version/clojure-$version.jar"
+
+  if [ -e "$1" ]; then
+    java -cp $clojure:. clojure.main $@
+  else
+    java -cp $clojure:. clojure.main
+  fi
+}
