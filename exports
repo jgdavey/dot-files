@@ -15,4 +15,9 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -n
 
 export PGHOST="/tmp"
 
+export GOPATH="$HASHROCKET_DIR"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
+
+[ -f "$HOME/.exports.local" ] && source "$HOME/.exports.local"
