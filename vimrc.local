@@ -5,6 +5,8 @@ augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Menlo:h15
   autocmd FileType vim setlocal foldmethod=marker
+  autocmd BufNewFile,BufReadPost *.edn,*.pxi set ft=clojure
+  autocmd BufNewFile,BufReadPost *.boot set ft=clojure sw=2
 augroup END
 
 colorscheme railscasts
