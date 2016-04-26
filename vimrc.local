@@ -13,6 +13,7 @@ colorscheme railscasts
 
 let g:use_cursor_shapes = 1
 let g:turbux_runner = 'tslime'
+let g:tslime_always_current_session = 1
 
 if exists($TMUX)
   nnoremap <leader>p :set paste \| r!tmux show-buffer \| set nopaste<CR>
