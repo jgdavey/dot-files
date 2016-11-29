@@ -1,49 +1,53 @@
 (require 'package)
-(require 'cl)
 
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 (package-initialize)
+
+(menu-bar-mode -1)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Add in your own as you wish:
-(defvar my-packages '(ac-nrepl
-                      auto-complete
-                      autopair
-                      clojure-mode
-                      clojure-test-mode
-                      clojurescript-mode
-                      color-theme
-                      color-theme-sanityinc-tomorrow
-                      ctags
+(defvar my-packages '(cider
+                      company
                       exec-path-from-shell
-                      evil
-                      evil-paredit
-                      markdown-mode
-                      paredit
-                      rainbow-delimiters
-                      starter-kit
-                      starter-kit-eshell
-                      starter-kit-js
-                      starter-kit-lisp
-                      starter-kit-ruby
-                      ruby-end
-                      surround
-                      undo-tree)
+                      magit
+                      monokai-theme
+                      paredit)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
         (package-install p)))
 
-(load-theme 'sanityinc-tomorrow-night t nil)
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(load-theme 'monokai t)
 
-(when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize))
-
-(remove-hook 'prog-mode-hook 'idle-highlight-mode)
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (exec-path-from-shell paredit monokai-theme magit company cider))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
