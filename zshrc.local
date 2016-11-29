@@ -4,10 +4,6 @@
 source "$HOME/.exports"
 source "$HOME/.aliases"
 
-cdpath=(
-  $HASHROCKET_DIR
-)
-
 # Extra Bindings
 
 bindkey "^[[5~" up-line-or-history
@@ -57,6 +53,4 @@ PROMPT='
 
 # Alternate prompt for screencasts
 # PROMPT='%{$fg[cyan]%}%~ %{$fg[yellow]%}%# %{$reset_color%}'
-
-# hr command/completions setup
-eval "$(/Users/jgdavey/hashrocket/hr/bin/hr init - zsh)"
+eval "$(/Users/jgdavey/src/dotmatrix/hr/bin/hr init -)"
